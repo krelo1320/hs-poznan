@@ -1,0 +1,97 @@
+:root {
+  /* Colors */
+  --main: #f5f5f5;
+  --main-sub: #e7e7e7;
+  --accent: #00f47a;
+  --background: #010101;
+
+  /* Borders */
+  --border: 2px dashed var(--main-sub);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--main);
+  background: var(--background);
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--main-sub);
+  font-weight: 600;
+}
+
+main {
+  margin: auto auto;
+  max-width: 1024px;
+}
+
+main > header {
+  margin: 2rem auto;
+  width: fit-content;
+}
+
+main > header > h1 {
+  font-weight: 700;
+}
+
+main > header > p {
+  text-align: right;
+}
+
+main > p {
+  text-align: justify;
+}
+
+nav {
+  background: var(--background);
+}
+
+nav > p > a {
+  margin: 0;
+  border: 0;
+  text-transform: lowercase;
+  color: var(--main);
+}
+
+nav > p > a:before{
+  content: "/";
+  color: var(--accent);
+}
+
+body > header {
+  border-bottom: var(--border);
+}
+
+footer {
+  color: var(--accent);
+  border-top: var(--border);
+}
+
+footer > p {
+  white-space: nowrap;
+}
+
+body > header > nav > p, footer > p {
+  text-align: center;
+}
+
+/* For some reason this does not work in Blink web engine
+@media (max-width:calc(1024px + 2rem)){
+  main {
+    margin: auto 1rem;
+  }
+} */
+
+@media (max-width:calc(1024px + 32px)){
+  main {
+    margin: auto 1rem;
+  }
+}
