@@ -23,6 +23,8 @@ body {
   flex-flow: column nowrap;
 }
 
+#map { height: 240px; }
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--main-sub);
   font-weight: 600;
@@ -34,7 +36,7 @@ main {
 }
 
 main > header {
-  margin: 2rem auto;
+  margin: 0 auto 2rem;
   width: fit-content;
 }
 

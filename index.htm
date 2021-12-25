@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
     <title>Hackerspace Poznan</title>
     <!-- Load IBM Plex Mono font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
       rel="stylesheet"
@@ -22,6 +22,13 @@
     <meta name="apple-mobile-web-app-title" content="Hackerspace Poznań">
     <meta name="application-name" content="Hackerspace Poznań">
     <meta name="theme-color" content="#010101">
+    <!-- Leaflet (map library) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
   </head>
   <body>
     <header>
@@ -33,27 +40,49 @@
       </nav>
     </header>
     <main>
-      <header>
-        <h1>Hackerspace Poznan</h1>
-        <p>Welcome aboard</p>
-      </header>
-      <h2>Czym jest <i>hackerspace</i>?</h2>
-      <p>
-        Hackerspace to miejsce pełne świadomych, ciekawych świata ludzi których
-        łączy zamiłowanie do nowych technologii. Pracujemy w różnych segmentach
-        IT, branżach kreatywnych, przedsiębiorczych, ale przyświeca nam jeden
-        cel. Stworzenie przyjaznego środowiska w którym można wspólnie spędzić
-        czas.
-      </p>
-      <h2>Jak dołączyć?</h2>
-      <h3>Kontakt:</h3>
-      <ul>
-        <li>mail: test@mail.org</li>
-        <li>discord</li>
-      </ul>
+        <header>
+          <h1>Hackerspace Poznan</h1>
+          <p>Welcome aboard</p>
+        </header>
+        <article id="description">
+          <h2>Czym jest <i>hackerspace</i>?</h2>
+          <p>
+            Hackerspace to miejsce pełne świadomych, ciekawych świata ludzi
+            których łączy zamiłowanie do nowych technologii. Pracujemy w różnych
+            segmentach IT, branżach kreatywnych, przedsiębiorczych, ale
+            przyświeca nam jeden cel. Stworzenie przyjaznego środowiska w którym
+            można wspólnie spędzić czas.
+          </p>
+        </article>
+        <article id="contact">
+          <h2>Jak dołączyć?</h2>
+          <h3>Kontakt:</h3>
+          <ul>
+            <li>mail: test@mail.org</li>
+            <li>discord</li>
+          </ul>
+          <h3>Adres:</h3>
+          <ul>
+            <li>ul. Testowa 1</li>
+            <li>00-000 Poznań</li>
+            <li>miasto doznań</li>
+          </ul>
+          <div id="map"></div>
+        </article>
     </main>
     <footer>
       <p>HACK THE PLANET~HACK THE PLANET~HACK THE PLANET~HACK THE PLANET</p>
     </footer>
   </body>
+  <script>
+    var map = L.map('map').setView([52.408333, 16.934167], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: '🄯 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoibWJsZWQiLCJhIjoiY2t4bTBtMTQyMXUyYzJya2phenIyb285aiJ9.L0Kd5_PBr9wyN0WC4wa2BQ' /*plz do not steal XD*/
+  }).addTo(map);
+  </script>
 </html>
